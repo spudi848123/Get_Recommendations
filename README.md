@@ -7,7 +7,7 @@ For example: get_recommendations("Authentication.dest", "127.0.0.1") the first e
 1) The result can be filtered of redundant elements in the list by using a *set*. I have created a list since the problem statement mentions a list should be returned 
 2) "value" is the recommendation 
 3) Filter out nulls when reading the csv file
-4) The tests may run on python 3 only
+4) The tests will run on python 3 only
 5) Assumed the values that need to be substituted and are passed as a list
 6) The number of values correspond to the number of fieldnames to get the recommendations based on the *field_recommendations.csv* 
 
