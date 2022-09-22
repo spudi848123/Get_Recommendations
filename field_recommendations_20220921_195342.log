@@ -1,3 +1,0 @@
-2022-09-21 19:53:42 INFO:Read the csv file into a dictionary
-2022-09-21 19:53:42 INFO:Collect the header names
-2022-09-21 19:53:42 INFO:Iterate through the rows in the csv and exclude nulls or blanks in the column values
