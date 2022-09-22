@@ -3,7 +3,7 @@
 Given a CSV file with a multiple fields, return a list of recommendations for a each field and it's associated recommended value.
 For example: get_recommendations("Authentication.dest", "127.0.0.1") the first element in the list should be "Logins from host 127.0.0.1 by action"
 
-## Assumptions made: 
+## Assumptions 
 1) The result can be filtered of redundant elements in the list by using a *set*. I have created a list since the problem statement mentions a list should be returned 
 2) "value" is the recommendation 
 3) Filter out nulls when reading the csv file
