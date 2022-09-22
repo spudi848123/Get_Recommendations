@@ -1,6 +1,3 @@
-# Assumptions: 
-# 1) Ignore nulls when reading the file
-# 2) The tests may run on python 3 only
 import collections, csv 
 import os, sys
 from fletch_logger import logger
@@ -11,7 +8,7 @@ class FieldRecommend(object):
         # Initiate a dictionary to contain the data from the field_recommendations.csv. 
         # The first row elements are the keys. A list of remaining elements in the csv are the values for each corresponding key
         # For ex. dict[column1_heading]=[column1_value1, column1_value2, column1_value3.....]
-        FRLogger = logger('field_recommendations_')
+        FRLogger = logger() # Defining the log file
         out = {}
         with open(fname, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -30,16 +27,19 @@ class FieldRecommend(object):
     
         self.out = out
         self.fieldnames = fieldnames
+        self.logger = FRLogger
     
     def get_recommendations(self, field, value):
         # return a list of recommendations for field
         # where value has been substituted for "[value]" in each recommendation
         # example: get_recommendations("Authentication.dest", "127.0.0.1")
         # the first element in the list should be "Logins from host 127.0.0.1 by action"
+        self.logger.log_it(f"Getting the values for the {field}")
         res = list(map(lambda recmdtns: str.replace(recmdtns, "[value]", value), self.out[field]))
         return res
 
     def get_fieldnames(self):
         # Return a list of header names or field names
+        self.logger.log_it(f"Getting the list of header names")
         fieldnames = self.fieldnames
         return fieldnames
